@@ -11,7 +11,7 @@ namespace ChineseAuction.Models
         public string Name { get; set; }
         [Required, MaxLength(100)]
         public string Description { get; set; }
-        public string Details { get; set; }
+        public string? Details { get; set; }
         public string Picture { get; set; }
         [Required]
         public int DonorId { get; set; }
@@ -23,7 +23,9 @@ namespace ChineseAuction.Models
         public Category Category { get; set; }
         public int Purchases_quantity { get; set; }
         public int Card_price { get; set; }
-        public User? Winner { get; set; } = null;
+        public int? WinnerID { get; set; } = null;
+        [ForeignKey("WinnerID")]
+        public User? winner { get; set; } = null;
         public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
     }
 }

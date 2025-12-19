@@ -13,10 +13,9 @@ namespace ChineseAuction.Models
         public Gift Gift { get; set; }
         [Required]
         public int UserId { get; set; }
-        [Required, ForeignKey("UseId]")]
+        [Required, ForeignKey("UserId")]
         public User User { get; set; }
         [Required]
-        public DateTime Pruchases_date { get; } = DateTime.Now;
-
+        public DateTime Pruchases_date { get; set; } = DateTime.Now;
     }
 }

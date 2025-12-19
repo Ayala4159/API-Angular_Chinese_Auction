@@ -5,7 +5,7 @@
 namespace ChineseAuction.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate_0 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,13 +70,13 @@ namespace ChineseAuction.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Details = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Details = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Picture = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DonorId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     Purchases_quantity = table.Column<int>(type: "int", nullable: false),
                     Card_price = table.Column<int>(type: "int", nullable: false),
-                    WinnerId = table.Column<int>(type: "int", nullable: true)
+                    WinnerID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -94,8 +94,8 @@ namespace ChineseAuction.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Gifts_Users_WinnerId",
-                        column: x => x.WinnerId,
+                        name: "FK_Gifts_Users_WinnerID",
+                        column: x => x.WinnerID,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -107,8 +107,7 @@ namespace ChineseAuction.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     GiftId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    UseId = table.Column<int>(name: "UseId]", type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,8 +119,8 @@ namespace ChineseAuction.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Purchases_Users_UseId]",
-                        column: x => x.UseId,
+                        name: "FK_Purchases_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -138,9 +137,9 @@ namespace ChineseAuction.Migrations
                 column: "DonorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Gifts_WinnerId",
+                name: "IX_Gifts_WinnerID",
                 table: "Gifts",
-                column: "WinnerId");
+                column: "WinnerID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Purchases_GiftId",
@@ -148,9 +147,9 @@ namespace ChineseAuction.Migrations
                 column: "GiftId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Purchases_UseId]",
+                name: "IX_Purchases_UserId",
                 table: "Purchases",
-                column: "UseId]");
+                column: "UserId");
         }
 
         /// <inheritdoc />

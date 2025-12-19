@@ -11,8 +11,8 @@ using StoreApi.Data;
 namespace ChineseAuction.Migrations
 {
     [DbContext(typeof(ChinesActionDbContext))]
-    [Migration("20251216133559_InitialCreate_0")]
-    partial class InitialCreate_0
+    [Migration("20251219092330_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,7 +109,6 @@ namespace ChineseAuction.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Details")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DonorId")
@@ -127,7 +126,7 @@ namespace ChineseAuction.Migrations
                     b.Property<int>("Purchases_quantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WinnerId")
+                    b.Property<int?>("WinnerID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -136,7 +135,7 @@ namespace ChineseAuction.Migrations
 
                     b.HasIndex("DonorId");
 
-                    b.HasIndex("WinnerId");
+                    b.HasIndex("WinnerID");
 
                     b.ToTable("Gifts", (string)null);
                 });
@@ -152,9 +151,6 @@ namespace ChineseAuction.Migrations
                     b.Property<int>("GiftId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UseId]")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -162,7 +158,7 @@ namespace ChineseAuction.Migrations
 
                     b.HasIndex("GiftId");
 
-                    b.HasIndex("UseId]");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Purchases", (string)null);
                 });
@@ -219,15 +215,15 @@ namespace ChineseAuction.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ChineseAuction.Models.User", "Winner")
+                    b.HasOne("ChineseAuction.Models.User", "winner")
                         .WithMany()
-                        .HasForeignKey("WinnerId");
+                        .HasForeignKey("WinnerID");
 
                     b.Navigation("Category");
 
                     b.Navigation("Donor");
 
-                    b.Navigation("Winner");
+                    b.Navigation("winner");
                 });
 
             modelBuilder.Entity("ChineseAuction.Models.Purchase", b =>
@@ -240,7 +236,7 @@ namespace ChineseAuction.Migrations
 
                     b.HasOne("ChineseAuction.Models.User", "User")
                         .WithMany("Purchases")
-                        .HasForeignKey("UseId]")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

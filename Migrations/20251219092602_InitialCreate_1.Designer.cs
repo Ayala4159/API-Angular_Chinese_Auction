@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StoreApi.Data;
 
@@ -11,9 +12,11 @@ using StoreApi.Data;
 namespace ChineseAuction.Migrations
 {
     [DbContext(typeof(ChinesActionDbContext))]
-    partial class ChinesActionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251219092602_InitialCreate_1")]
+    partial class InitialCreate_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
