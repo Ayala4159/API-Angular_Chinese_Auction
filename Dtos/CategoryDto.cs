@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ChineseAuction.Models
+namespace ChineseAuction.Dtos
 {
-    public class Category
+    public class CategoryDto
     {
-        [Required]
-        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
     }

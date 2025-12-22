@@ -22,10 +22,9 @@ namespace ChineseAuction.Models
         [Required, ForeignKey("CategoryId")]
         public Category Category { get; set; }
         public int Purchases_quantity { get; set; }
-        public int Card_price { get; set; }
-        public int? WinnerID { get; set; } = null;
-        [ForeignKey("WinnerID")]
-        public User? winner { get; set; } = null;
-        public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
+        public ICollection<Basket> Purchases { get; set; } = new List<Basket>();
+        [Required]
+        public bool Is_lottery { get; set; } = false;
+
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StoreApi.Data;
 
@@ -11,9 +12,11 @@ using StoreApi.Data;
 namespace ChineseAuction.Migrations
 {
     [DbContext(typeof(ChinesActionDbContext))]
-    partial class ChinesActionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251222103523_InitialCreate_3")]
+    partial class InitialCreate_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,9 +42,8 @@ namespace ChineseAuction.Migrations
                     b.Property<int>("PackageId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UniquePackageId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Pruchase_date")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -94,7 +96,7 @@ namespace ChineseAuction.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("First_name")
                         .IsRequired()
@@ -118,9 +120,6 @@ namespace ChineseAuction.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("Donors", (string)null);
                 });
@@ -217,10 +216,6 @@ namespace ChineseAuction.Migrations
                     b.Property<DateTime>("Pruchase_date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UniquePackageId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -314,7 +309,7 @@ namespace ChineseAuction.Migrations
                         .IsRequired();
 
                     b.HasOne("ChineseAuction.Models.User", "User")
-                        .WithMany("Basket")
+                        .WithMany("Purchases")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -360,7 +355,7 @@ namespace ChineseAuction.Migrations
                         .IsRequired();
 
                     b.HasOne("ChineseAuction.Models.User", "User")
-                        .WithMany("Purchase")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -403,9 +398,7 @@ namespace ChineseAuction.Migrations
 
             modelBuilder.Entity("ChineseAuction.Models.User", b =>
                 {
-                    b.Navigation("Basket");
-
-                    b.Navigation("Purchase");
+                    b.Navigation("Purchases");
                 });
 #pragma warning restore 612, 618
         }

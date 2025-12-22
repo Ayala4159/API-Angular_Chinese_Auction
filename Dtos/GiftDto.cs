@@ -13,17 +13,13 @@ namespace ChineseAuction.Dtos
         public string? Details { get; set; }
         public string Picture { get; set; }
         [Required]
-        public int DonorName { get; set; }
+        public int DonorId { get; set; }
         [Required]
-        public int CategoryName { get; set; }
-        public int Card_price { get; set; }
+        public string CategoryName { get; set; }
+        [Required]
+        public bool Is_lottery { get; set; }
     }
     public class UserUpdateGiftDto {
-        [Required]
-        public int Purchases_quantity { get; set; }
-    }
-    public class lotorryGiftDto
-    {
         [Required]
         public int Purchases_quantity { get; set; }
     }

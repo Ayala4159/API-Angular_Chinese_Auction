@@ -18,7 +18,7 @@ namespace ChineseAuction.Models
         public string? Phone { get; set; }
         [Required]
         public Role Role { get; set; }= Role.customer;
-        public ICollection<Purchase> Purchases { get; set; }=new List<Purchase>();
-
+        public ICollection<Basket> Basket { get; set; } = new List<Basket>();
+        public ICollection<Purchase> Purchase { get; set; } = new List<Purchase>();
     }
 }
