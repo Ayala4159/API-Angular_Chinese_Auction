@@ -5,9 +5,9 @@ namespace ChineseAuction.Dtos
     public class PackageDto
     {
         [Required, MaxLength(30)]
-        public string Name { get; set; }
+        public string Name { get; set; }=string.Empty;
         [Required, MaxLength(100)]
-        public string Description { get; set; }
+        public string Description { get; set; }=string.Empty;
         [Required]
         public int NumOfCards { get; set; }
         [Required]

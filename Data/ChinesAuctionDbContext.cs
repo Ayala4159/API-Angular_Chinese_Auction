@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 
-namespace StoreApi.Data
+namespace ChineseAuction.Data
 {
     public class ChinesActionDbContext : DbContext
     {
@@ -14,14 +14,14 @@ namespace StoreApi.Data
         public DbSet<Gift> Gifts => Set<Gift>();
         public DbSet<Basket> Basket => Set<Basket>();
         public DbSet<Purchase> Purchase => Set<Purchase>();
-        public DbSet<Winner> Winner => Set<Winner>();
         public DbSet<Package> Package => Set<Package>();
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // מפות שמות הטבלאות במסד הנתונים
-            modelBuilder.Entity<Category>().ToTable("Categories");
+            modelBuilder.Entity<Category>().ToTable("Categories").HasIndex(u=>u.Name)
+                .IsUnique();
             modelBuilder.Entity<Donor>().ToTable("Donors").HasIndex(u => u.Email)
                 .IsUnique();
             modelBuilder.Entity<User>().ToTable("Users").HasIndex(u => u.Email)
@@ -29,7 +29,6 @@ namespace StoreApi.Data
             modelBuilder.Entity<Gift>().ToTable("Gifts");
             modelBuilder.Entity<Purchase>().ToTable("Purchase");
             modelBuilder.Entity<Basket>().ToTable("Basket");
-            modelBuilder.Entity<Winner>().ToTable("Winner");
             modelBuilder.Entity<Package>().ToTable("Package");
             base.OnModelCreating(modelBuilder);
         }

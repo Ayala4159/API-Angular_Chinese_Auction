@@ -1,10 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ChineseAuction.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChineseAuction.Dtos
 {
-    public class CategoryDto
+    public class CreateCategoryDto
     {
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; }=string.Empty;
+    }
+    public class GetCategoryDto
+    {
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        [Required]
+        public ICollection<GiftDto> Gifts { get; set; } = new List<GiftDto>();
     }
 }
