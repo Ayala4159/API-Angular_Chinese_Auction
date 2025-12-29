@@ -11,6 +11,8 @@ namespace ChineseAuction.Dtos
     public class GetCategoryDto
     {
         [Required]
+        public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = string.Empty;
         [Required]
         public ICollection<GiftDto> Gifts { get; set; } = new List<GiftDto>();

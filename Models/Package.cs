@@ -14,7 +14,5 @@ namespace ChineseAuction.Models
         public int NumOfCards { get; set; }
         [Required]
         public int Price { get; set; }
-        [Required]
-        public bool IsWon { get; set; } = false;
     }
 }

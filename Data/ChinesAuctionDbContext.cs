@@ -12,9 +12,9 @@ namespace ChineseAuction.Data
         public DbSet<Donor> Donors => Set<Donor>();
         public DbSet<User> Users => Set<User>();
         public DbSet<Gift> Gifts => Set<Gift>();
-        public DbSet<Basket> Basket => Set<Basket>();
-        public DbSet<Purchase> Purchase => Set<Purchase>();
-        public DbSet<Package> Package => Set<Package>();
+        public DbSet<Basket> Baskets => Set<Basket>();
+        public DbSet<Purchase> Purchases => Set<Purchase>();
+        public DbSet<Package> Packages => Set<Package>();
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,9 +27,9 @@ namespace ChineseAuction.Data
             modelBuilder.Entity<User>().ToTable("Users").HasIndex(u => u.Email)
                 .IsUnique();
             modelBuilder.Entity<Gift>().ToTable("Gifts");
-            modelBuilder.Entity<Purchase>().ToTable("Purchase");
-            modelBuilder.Entity<Basket>().ToTable("Basket");
-            modelBuilder.Entity<Package>().ToTable("Package");
+            modelBuilder.Entity<Purchase>().ToTable("Purchases");
+            modelBuilder.Entity<Basket>().ToTable("Baskets");
+            modelBuilder.Entity<Package>().ToTable("Packages");
             base.OnModelCreating(modelBuilder);
         }
     }

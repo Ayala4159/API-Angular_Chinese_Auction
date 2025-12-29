@@ -13,7 +13,7 @@ namespace ChineseAuction.Dtos
         [Required]
         public int PackageId { get; set; }
         [Required]
-        public string UniquePackageId { get; set; }
+        public string UniquePackageId { get; set; } = string.Empty;
     }
     public class GetPurchaseDto
     {

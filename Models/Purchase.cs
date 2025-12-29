@@ -25,7 +25,9 @@ namespace ChineseAuction.Models
         [Required]
         public DateTime Pruchase_date { get; set; } = DateTime.Now;
         [Required]
-        public string UniquePackageId { get; set; }=string.Empty;
+        public bool IsWon { get; set; } = false;
+        [Required]
+        public string UniquePackageId { get; set; } = string.Empty;
     }
 }
 //[HttpPost("confirm-purchase")]

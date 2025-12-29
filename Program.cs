@@ -8,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddControllers();
+builder.WebHost.UseStaticWebAssets();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddDbContext<ChinesActionDbContext>(options => options.UseSqlServer("Server=ELBOGEN\\SQLEXPRESS;DataBase=Chinese Auction;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
 
@@ -20,7 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

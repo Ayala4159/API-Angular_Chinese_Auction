@@ -54,7 +54,7 @@ namespace ChineseAuction.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Basket", (string)null);
+                    b.ToTable("Baskets", (string)null);
                 });
 
             modelBuilder.Entity("ChineseAuction.Models.Category", b =>
@@ -67,9 +67,12 @@ namespace ChineseAuction.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Categories", (string)null);
                 });
@@ -184,9 +187,6 @@ namespace ChineseAuction.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<bool>("IsWon")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -200,7 +200,7 @@ namespace ChineseAuction.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Package", (string)null);
+                    b.ToTable("Packages", (string)null);
                 });
 
             modelBuilder.Entity("ChineseAuction.Models.Purchase", b =>
@@ -213,6 +213,9 @@ namespace ChineseAuction.Migrations
 
                     b.Property<int>("GiftId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsWon")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PackageId")
                         .HasColumnType("int");
@@ -235,7 +238,7 @@ namespace ChineseAuction.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Purchase", (string)null);
+                    b.ToTable("Purchases", (string)null);
                 });
 
             modelBuilder.Entity("ChineseAuction.Models.User", b =>
