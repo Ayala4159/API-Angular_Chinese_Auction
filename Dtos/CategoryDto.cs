@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ChineseAuction.Dtos
 {
-    public class CreateCategoryDto
+    public class CategoryDto
     {
         [Required]
         public string Name { get; set; }=string.Empty;
