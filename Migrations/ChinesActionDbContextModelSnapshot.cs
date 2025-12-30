@@ -17,7 +17,7 @@ namespace ChineseAuction.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.11")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -149,6 +149,9 @@ namespace ChineseAuction.Migrations
 
                     b.Property<int>("DonorId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Is_approved")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("Is_lottery")
                         .HasColumnType("bit");

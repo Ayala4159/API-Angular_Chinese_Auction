@@ -23,6 +23,8 @@ namespace ChineseAuction.Dtos
     }
     public class ManagerGetDonorDto
     {
+        [Required]
+        public int Id { get; set; }
         [Required, EmailAddress(ErrorMessage = "Invalid email address")]
         public string Email { get; set; } = string.Empty;
         [Required, MinLength(8), MaxLength(20)]

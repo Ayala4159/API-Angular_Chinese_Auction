@@ -15,6 +15,6 @@ namespace ChineseAuction.Dtos
         [Required]
         public string Name { get; set; } = string.Empty;
         [Required]
-        public ICollection<GiftDto> Gifts { get; set; } = new List<GiftDto>();
+        public ICollection<GetGiftDto> Gifts { get; set; } = new List<GetGiftDto>();
     }
 }
