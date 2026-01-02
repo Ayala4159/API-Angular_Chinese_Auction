@@ -11,5 +11,6 @@ namespace ChineseAuction.Service
         Task<GetGiftDto?> GetGiftByIdAsync(int id);
         Task<GetGiftDto?> UpdateGiftAsync(int id, CreateGiftDto giftDto);
         Task<UserUpdateGiftDto?> UpdateGiftPurchasesQuantityAsync(int giftId);
+        Task<bool> UpdateApprovalStatusAsync(ApproveGiftDto gift);
     }
 }

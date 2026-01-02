@@ -14,8 +14,8 @@ builder.WebHost.UseStaticWebAssets();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<ChinesActionDbContext>(options => options.UseSqlServer("Server=ELBOGEN\\SQLEXPRESS;DataBase=Chinese Auction;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
-builder.Services.AddDbContext<ChinesActionDbContext>(options => options.UseSqlServer("Server=DESKTOP-FFFCT8A\\SQLEXPRESS;DataBase=Chinese Auction;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
+builder.Services.AddDbContext<ChinesActionDbContext>(options => options.UseSqlServer("Server=ELBOGEN\\SQLEXPRESS;DataBase=ChineseAuction;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
+//builder.Services.AddDbContext<ChinesActionDbContext>(options => options.UseSqlServer("Server=DESKTOP-FFFCT8A\\SQLEXPRESS;DataBase=Chinese Auction;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
 
 //repositories
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();

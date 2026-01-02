@@ -15,7 +15,7 @@ namespace ChineseAuction.Repositoreis
         // only manager - manager
         public async Task<IEnumerable<Donor>> GetAllDonorsAsync()
         {
-            return await _context.Donors.Include(d => d.Donations).ToListAsync();
+            return await _context.Donors.ToListAsync();
         }
 
         // get donor by id - donor himself or manager

@@ -108,5 +108,21 @@ namespace ChineseAuction.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        // Update approval status
+        [HttpPut("approve")]
+        public async Task<IActionResult> UpdateApprovalStatus([FromBody] ApproveGiftDto gift)
+        {
+            try
+            {
+                var result =await _giftService.UpdateApprovalStatusAsync(gift);
+                if (!result) return NotFound("The id:" + gift.Id + " ,did not found🤚");
+                return Ok("Gift with id:" + gift.Id + " approval status has been updated successfully✅");
+            }
+            catch (Exception ex)
+            {
+                // Log the exception here
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

@@ -5208,23 +5208,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\אילה אלבוגן\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\לימודים\\שנה ב\\ChineseAuction\\ChineseAuction\\ChineseAuction.csproj",
+      "projectUniqueName": "C:\\Users\\אילה אלבוגן\\Desktop\\ChineseAuction\\ChineseAuction\\ChineseAuction.csproj",
       "projectName": "ChineseAuction",
-      "projectPath": "F:\\לימודים\\שנה ב\\ChineseAuction\\ChineseAuction\\ChineseAuction.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "F:\\לימודים\\שנה ב\\ChineseAuction\\ChineseAuction\\obj\\",
+      "projectPath": "C:\\Users\\אילה אלבוגן\\Desktop\\ChineseAuction\\ChineseAuction\\ChineseAuction.csproj",
+      "packagesPath": "C:\\Users\\אילה אלבוגן\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\אילה אלבוגן\\Desktop\\ChineseAuction\\ChineseAuction\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\אילה אלבוגן\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

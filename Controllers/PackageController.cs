@@ -42,7 +42,7 @@ namespace ChineseAuction.Controllers
                 GetPackageDto package = await _packageService.AddPackageAsync(createPackageDto);
                 return CreatedAtAction(nameof(GetPackageById), new { id = package.Id }, package);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //שליחת האקספשין ללוגר כאן
                 return BadRequest("Internal server error occurred.");
@@ -74,7 +74,7 @@ namespace ChineseAuction.Controllers
                 if (!isDeleted) return NotFound("The id:" + id + " ,did not found🤚");
                 return Ok("Sucsses");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //שליחת האקספשין ללוגר כאן
                 return BadRequest("Internal server error occurred.");

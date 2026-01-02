@@ -96,5 +96,14 @@ namespace ChineseAuction.Repositoreis
                 .Include(g => g.Donor)
                 .ToListAsync();
         }
+
+        // approve gift - manager
+        public async Task<bool> UpdateApprovalStatusAsync(int giftId,bool Is_approved)
+        {
+            int rowsAffected = await _context.Gifts
+                .Where(g => g.Id == giftId)
+                .ExecuteUpdateAsync(s => s.SetProperty(g => g.Is_approved, true));
+            return rowsAffected > 0;
+        }
     }
 }

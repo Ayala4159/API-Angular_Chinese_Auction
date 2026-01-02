@@ -14,11 +14,9 @@ namespace Chinese_Auction.Mappings
             CreateMap<Category, GetCategoryDto>();
 
             // Gift
-            CreateMap<Gift, GetGiftDto>()
-                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : string.Empty));
+            CreateMap<Gift, GetGiftDto>();
             CreateMap<CreateGiftDto, Gift>();
-            CreateMap<UserUpdateGiftDto, Gift>()
-                .ForMember(dest => dest.Purchases_quantity, opt => opt.Condition((src, dest, srcMember) => srcMember != 0));
+            CreateMap<UserUpdateGiftDto, Gift>();
 
             // Package
             CreateMap<Package, GetPackageDto>();

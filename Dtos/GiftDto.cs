@@ -9,22 +9,23 @@ namespace ChineseAuction.Dtos
         [Required]
         public int Id { get; set; }
         [Required, MaxLength(30)]
-        public string Name { get; set; }=string.Empty;
+        public string Name { get; set; } = string.Empty;
         [Required, MaxLength(100)]
-        public string Description { get; set; }=string.Empty;
+        public string Description { get; set; } = string.Empty;
         public string? Details { get; set; }
-        public string Picture { get; set; }=string.Empty;
+        public string Picture { get; set; } = string.Empty;
         [Required]
         public int DonorId { get; set; }
         [Required]
-        public string CategoryName { get; set; }=string.Empty;
+        public int CategoryId { get; set; }
         [Required]
         public bool Is_lottery { get; set; }
+        [Required]
+        public bool Is_approved { get; set; } = false;
+
     }
     public class CreateGiftDto
     {
-        [Required]
-        public int Id { get; set; }
         [Required, MaxLength(30)]
         public string Name { get; set; } = string.Empty;
         [Required, MaxLength(100)]
@@ -34,12 +35,22 @@ namespace ChineseAuction.Dtos
         [Required]
         public int DonorId { get; set; }
         [Required]
-        public string CategoryName { get; set; } = string.Empty;
+        public int CategoryId { get; set; }
         [Required]
         public bool Is_lottery { get; set; }
+        [Required]
+        public bool Is_approved { get; set; } = false;
     }
-    public class UserUpdateGiftDto {
+    public class UserUpdateGiftDto
+    {
         [Required]
         public int Purchases_quantity { get; set; }
+    }
+    public class ApproveGiftDto
+    {
+        [Required]
+        public int Id { get; set; }
+        [Required]
+        public bool Is_approved { get; set; } = false;
     }
 }

@@ -73,5 +73,13 @@ namespace ChineseAuction.Service
             return true;
         }
 
+        //approve gift
+        public async Task<bool> UpdateApprovalStatusAsync(ApproveGiftDto gift)
+        {
+            var existingGift = await _giftRepository.GetGiftByIdAsync(gift.Id);
+            if (existingGift == null) return false;
+            bool success = await _giftRepository.UpdateApprovalStatusAsync(gift.Id, gift.Is_approved);
+            return success;
+        }
     }
 }

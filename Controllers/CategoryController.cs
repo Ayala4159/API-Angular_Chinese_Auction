@@ -25,7 +25,7 @@ namespace ChineseAuction.Controllers
                 var categories = await _categoryService.GetAllCategoriesAsync();
                 return Ok(categories);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //שליחת האקספשין ללוגר כאן
                 return BadRequest("Internal server error occurred.");
@@ -42,7 +42,7 @@ namespace ChineseAuction.Controllers
                 if (category == null) return NotFound("The id:" + id + " ,did not found🤚");
                 return Ok(category);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //שליחת האקספשין ללוגר כאן
                 return BadRequest("Internal server error occurred.");
@@ -90,7 +90,7 @@ namespace ChineseAuction.Controllers
                 if (!isDeleted) return NotFound("The id:" + id + " ,did not found🤚");
                 return Ok("Category deleted successfully.");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //שליחת האקספשין ללוגר כאן
                 return BadRequest("Internal server error occurred.");
